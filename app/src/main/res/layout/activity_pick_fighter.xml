@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_pick_fighter"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/colorPrimary"
+    tools:context="com.example.fredrick_tam.animonbattle.PickFighter">
+
+    <Button
+        android:text="@string/fight"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:id="@+id/Fight"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/relicbadge"
+        android:id="@+id/cpuselection"
+        android:scaleType="fitCenter"
+        android:layout_below="@+id/Fight"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/pokeball"
+        android:scaleType="fitCenter"
+        android:id="@+id/Ball"
+        android:layout_below="@id/Fight"
+        android:layout_alignStart="@+id/Fight" />
+
+    <TextView
+        android:text="@string/computer"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/computer" />
+
+    <TextView
+        android:text="@string/player"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/user"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="15dp" />
+
+    <TextView
+        android:layout_height="20dp"
+        android:textColor="@color/white"
+        android:id="@+id/Round"
+        android:textAlignment="center"
+        android:layout_width="80dp"
+        android:layout_below="@id/Ball"
+        android:layout_alignStart="@+id/Ball"
+        android:layout_marginBottom="26dp" />
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/squirtle"
+        android:scaleType="fitCenter"
+        android:id="@+id/Turtle"
+        android:layout_below="@+id/Mouse"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/cat"
+        android:scaleType="fitCenter"
+        android:id="@+id/Cat"
+        android:layout_below="@+id/Turtle"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/phant"
+        android:layout_marginLeft="30dp"
+        android:scaleType="fitCenter"
+        android:id="@+id/Elephant"
+        android:layout_below="@+id/Cat"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/charmander"
+        android:scaleType="fitCenter"
+        android:id="@+id/Lizard"
+        android:layout_below="@+id/Elephant"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/raichu"
+        android:scaleType="fitCenter"
+        android:id="@+id/Mouse"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/user"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reset"
+        android:textColor="@color/white"
+        android:id="@+id/pokeinfo"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="@string/you_choose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chosen"
+        android:textColor="@color/white"
+        android:layout_below="@+id/Round"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/characname"
+        android:layout_gravity="fill"
+        android:textColor="@color/white"
+        app:srcCompat="@drawable/welcomeimg"
+        android:layout_height="100dp"
+        android:layout_width="100dp"
+        android:layout_below="@+id/chosen"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="@string/cpu_choose"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cpuChosen"
+        android:layout_below="@+id/characname"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text=""
+        android:textColor="@color/white"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/cpuChosen"
+        android:layout_alignEnd="@+id/computer"
+        android:id="@+id/cpuCharacter" />
+
+</RelativeLayout>

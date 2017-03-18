@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Animon Battle</string>
+    <string name="mouse">Raichu Mouse</string>
+    <string name="cat">Persian Cat</string>
+    <string name="turtle">Squirtle Turtle</string>
+    <string name="elephant">Phanpy Elephant</string>
+    <string name="lizard">Charmander Lizard</string>
+    <string name="play">Play</string>
+    <string name="play_again">Play Again</string>
+    <string name="home"> Home </string>
+    <string name="about">About</string>
+    <string name="player">Player</string>
+    <string name="computer">Computer</string>
+    <string name="teambattle"> Team BAttle</string>
+    <string name="randbattle">Random Battle</string>
+    <string name="you_choose">You Chose: </string>
+    <string name="cpu_choose">Computer Chose: </string>
+    <string name="battletypetext">Get badges and defeat the elite four</string>
+    <string name="fight">FIGHT!</string>
+    <string name="reset">*pokeball resets battle</string>
+    <string name="wonround"> You won this round!</string>
+    <string name="lostround"> Computer won this round!</string>
+    <string name="animonabout">
+        Animon Battle is a quick 3 round battle game against against Gary, the computer in which
+        characters such as Raichu and Squirtle (adapted from Pokemon) engage in an intense
+        battle till the best trainer wins!\n Victory is yours!\n
+        \n
+        Developed by Fredrick Kofi Tam \n
+        Newline Interactive Inc. Copyright 2017
+    </string>
+</resources>
