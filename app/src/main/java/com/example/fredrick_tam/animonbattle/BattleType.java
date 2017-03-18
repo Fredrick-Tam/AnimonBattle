@@ -9,8 +9,11 @@ import android.widget.Button;
 
 public class BattleType extends AppCompatActivity {
     private MediaPlayer track;
+
+    // effect source
     int song = R.raw.pikachu_echo;
 
+    // MyCLick class that is executed when buttons are clicked
     private class MyClick implements View.OnClickListener {
         public void onClick(View v) {
             switch(v.getId()){
@@ -27,11 +30,13 @@ public class BattleType extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_battle_type);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.battletype);
         track = MediaPlayer.create(this,song);
 
+        // creates random battle button and links it to MyClick class
         Button random;
 
         random = (Button) findViewById(R.id.RandoBattle);

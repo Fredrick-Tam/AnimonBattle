@@ -10,6 +10,8 @@ import android.widget.ImageView;
 
 public class BattleResult extends AppCompatActivity {
     private MediaPlayer track;
+
+    // sound effects for various outcomes
     int win = R.raw.tada;
     int loss = R.raw.loss;
     int draw = R.raw.tie;
@@ -19,10 +21,12 @@ public class BattleResult extends AppCompatActivity {
         public void onClick(View v) {
             switch(v.getId()){
                 case R.id.play_again:
+                    // redirect to play game again
                     Intent intent = new Intent(BattleResult.this,PickFighter.class);
                     startActivity(intent);
                     break;
                 case R.id.home:
+                    // redirects back to home screen of app
                     Intent intent2 = new Intent(BattleResult.this,WelcomeScreen.class);
                     startActivity(intent2);
             }
@@ -33,9 +37,16 @@ public class BattleResult extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_battle_result);
+
+        // access data from intetn that was passed on to this activity
         String result = getIntent().getExtras().getString("result");
+
+        // store image view source as variable for manipulation based on outcome
         ImageView battleView = (ImageView)findViewById(R.id.battle_outcome);
+
+        // if win, loss, or tie, execute the following instructions
         if (result.equals("win")) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
             getSupportActionBar().setDisplayUseLogoEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
             getSupportActionBar().setIcon(R.drawable.youwin);
@@ -44,6 +55,7 @@ public class BattleResult extends AppCompatActivity {
             track.start();
 
         } else if (result.equals("loss")) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
             getSupportActionBar().setDisplayUseLogoEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
             getSupportActionBar().setIcon(R.drawable.youlose);
@@ -52,6 +64,7 @@ public class BattleResult extends AppCompatActivity {
             track.start();
 
         } else if (result.equals("tie")){
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
             getSupportActionBar().setDisplayUseLogoEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
             getSupportActionBar().setIcon(R.drawable.draw);
@@ -60,9 +73,7 @@ public class BattleResult extends AppCompatActivity {
             track.start();
         }
 
-
-
-
+        // create play, and home buttons and link them to MyClick class implemented
         Button play, home;
 
         play = (Button) findViewById(R.id.play_again);

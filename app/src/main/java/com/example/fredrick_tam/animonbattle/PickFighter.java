@@ -17,19 +17,21 @@ import static com.example.fredrick_tam.animonbattle.R.string.mouse;
 import static com.example.fredrick_tam.animonbattle.R.string.turtle;
 
 public class PickFighter extends AppCompatActivity {
+    // initializing important private variables
     private MediaPlayer battle;
     int tune = R.raw.battlesong;
     private int count  = 0;
     private int cpuWins = 0;
     private int userWins = 0;
 
-
+    // implementation of OnCLickListener as MyCLick
     private class MyClick implements View.OnClickListener {
         public void onClick(View v) {
             TextView fighter = (TextView) findViewById(R.id.characname);
             TextView rounds = (TextView) findViewById(R.id.Round);
             TextView cpu = (TextView) findViewById(R.id.computer);
             TextView player = (TextView) findViewById(R.id.user);
+            // depending on image button chosen, populate textview descritpion
             switch(v.getId()){
                 case R.id.Turtle:
                     fighter.setText(getResources().getString(turtle));
@@ -47,6 +49,7 @@ public class PickFighter extends AppCompatActivity {
                     fighter.setText(getResources().getString(cat));
                     break;
                 case R.id.Ball:
+                    // whenever pokeball is clicked, reset round and score data
                     fighter.setText("");
                     count = 0;
                     userWins = 0;
@@ -63,6 +66,7 @@ public class PickFighter extends AppCompatActivity {
         }
     }
 
+    // fight button actions
     private class FightClick implements View.OnClickListener {
         TextView fighters = (TextView) findViewById(R.id.characname);
         TextView rounds = (TextView) findViewById(R.id.Round);
@@ -71,15 +75,18 @@ public class PickFighter extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
+            // count is the round, increment with each time fight button is pressed
             ++count;
             TextView cpu = (TextView) findViewById(R.id.computer);
             TextView player = (TextView) findViewById(R.id.user);
 
             rounds.setText("Round "+ count);
 
+            // randomly pick one of the 5 characters
             int rand = (int) (Math.random() * 5 + 1);
 
              /*
+            selection is based on the following criterion:
             1 is mouse
             2 is turtle
             3 is cat
@@ -198,11 +205,15 @@ public class PickFighter extends AppCompatActivity {
                            break;
                    }
             }
+
+            // display user and computer scores
             cpu.setText("Computer: " + Integer.toString(cpuWins));
             player.setText("Player: " + Integer.toString(userWins));
 
+            // if 3 rounds have elapsed, determine the winner
             if (count ==3 && !fighters.getText().equals("")) {
                 Intent intent = new Intent(PickFighter.this,BattleResult.class);
+                battle.pause();
                 if (userWins > cpuWins) {
                     intent.putExtra("result", "win");
                 } else if (userWins < cpuWins) {
@@ -220,18 +231,19 @@ public class PickFighter extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pick_fighter);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setIcon(R.drawable.animon_fight);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-
+        // sound effects
         battle = MediaPlayer.create(this,tune);
         battle.start();
         if (!battle.isPlaying()){
             battle.start();
         }
 
-
+        // linking various buttons to implementation classes
         TextView rounds = (TextView) findViewById(R.id.Round);
         rounds.setText("Round");
 
